@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Quiz</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+
+
+        <div class="start-box">
+
+            <div class="start" id="quiz-start">
+                <h1>Instructions</h1>
+            </div>
+            <div class="quiz-info">
+                <p>For this timed quiz, every incorrectly answered question results in subtracted time from the quiz
+                    timer.
+                    The quiz ends once all questions have been answer or once time runs out. Good luck!</p>
+            </div>
+
+        </div>
+
+        <!-- Quiz Box -->
+        <div class="quiz-box">
+            <header>
+                <div class="title">
+                    JavaScript Quiz
+                </div>
+                <div class="timer">
+                    <div class="time-text">Timer:</div>
+                    <div class="timer-sec">15</div>
+                </div>
+            </header>
+            <section>
+                <div class="que-text">
+                    <span>Inside which HTML element do we put the JavaScript?</span>
+                </div>
+                <div class="option-list">
+                    <div class="option">
+                        <span>javascript</span>
+                    </div>
+                </div>
+                <div class="option-list">
+                    <div class="option">
+                        <span>js</span>
+                        <div class="icon-cross"><i class="fas fa-times"></i></div>
+                    </div>
+                </div>
+                <div class="option-list">
+                    <div class="option">
+                        <span>script</span>
+                        <div class="icon-tick"><i class="fas fa-check"></i></div>
+                    </div>
+                </div>
+                <div class="option-list">
+                    <div class="option">
+                        <span>scripting</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quiz Box Footer -->
+            <footer>
+                <div class="total-que">
+                    <span><p>2</p>of<p>5</p>Questions</span>
+                </div>
+               <!-- [use for reference with correct answer button function] <button class="next_btn">Next</button> -->
+            </footer>
+        </div>
+
+
+    <main class="page-content">
+        <div class="start-btn">
+            <button type="button" id="startButton">Start!</button>
+        </div>
+
+
+    </main>
+
+    
+
+    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/questions.js"></script>
+</body>
+
+</html>
