@@ -11,77 +11,88 @@
 <body>
 
 
-        <div class="start-box">
+    <div class="start-box">
 
-            <div class="start" id="quiz-start">
-                <h1>Instructions</h1>
-            </div>
-            <div class="quiz-info">
-                <p>For this timed quiz, every incorrectly answered question results in subtracted time from the quiz
-                    timer.
-                    The quiz ends once all questions have been answer or once time runs out. Good luck!</p>
-            </div>
-
+        <div class="start" id="quiz-start">
+            <h1>Instructions</h1>
         </div>
-
-        <!-- Quiz Box -->
-        <div class="quiz-box">
-            <header>
-                <div class="title">
-                    JavaScript Quiz
-                </div>
-                <div class="timer">
-                    <div class="time-text">Timer:</div>
-                    <div class="timer-sec">15</div>
-                </div>
-            </header>
-            <section>
-                <div class="que-text">
-                    <span>Inside which HTML element do we put the JavaScript?</span>
-                </div>
-                <div class="option-list">
-                    <div class="option">
-                        <span>javascript</span>
-                    </div>
-                </div>
-                <div class="option-list">
-                    <div class="option">
-                        <span>js</span>
-                        <div class="icon-cross"><i class="fas fa-times"></i></div>
-                    </div>
-                </div>
-                <div class="option-list">
-                    <div class="option">
-                        <span>script</span>
-                        <div class="icon-tick"><i class="fas fa-check"></i></div>
-                    </div>
-                </div>
-                <div class="option-list">
-                    <div class="option">
-                        <span>scripting</span>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Quiz Box Footer -->
-            <footer>
-                <div class="total-que">
-                    <span><p>2</p>of<p>5</p>Questions</span>
-                </div>
-               <!-- [use for reference with correct answer button function] <button class="next_btn">Next</button> -->
-            </footer>
+        <div class="quiz-info">
+            <p>For this timed quiz, every incorrectly answered question results in subtracted time from the quiz
+                timer.
+                The quiz ends once all questions have been answer or once time runs out. Good luck!</p>
         </div>
-
-
-    <main class="page-content">
+        
         <div class="start-btn">
             <button type="button" id="startButton">Start!</button>
         </div>
 
+    </div>
 
-    </main>
+    <!-- Quiz Box -->
+    <div class="quiz-box">
+        <header>
+            <div class="title">
+                JavaScript Quiz
+            </div>
+            <div class="timer">
+                <div class="time-text">Timer:</div>
+                <div class="timer-sec">15</div>
+            </div>
+        </header>
+        <section>
+            <div class="que-text">
+                <span>Inside which HTML element do we put the JavaScript?</span>
+            </div>
+            <div class="option-list">
+                <div class="option">
+                    <span>javascript</span>
+                </div>
+            </div>
+            <div class="option-list">
+                <div class="option">
+                    <span>js</span>
+                    <div class="icon-cross"><i class="fas fa-times"></i></div>
+                </div>
+            </div>
+            <div class="option-list">
+                <div class="option">
+                    <span>script</span>
+                    <div class="icon-tick"><i class="fas fa-check"></i></div>
+                </div>
+            </div>
+            <div class="option-list">
+                <div class="option">
+                    <span>scripting</span>
+                </div>
+            </div>
+        </section>
 
-    
+        <!-- Quiz Box Footer -->
+        <footer>
+            <div class="total-que">
+                <span>
+                    <p>2</p>of<p>5</p>Questions
+                </span>
+            </div>
+            <!-- [use for reference with correct answer button function] <button class="next_btn">Next</button> -->
+        </footer>
+    </div>
+
+    <!-- Result Box -->
+    <div class="result-box">
+        <div class="complete-text">You have finished the quiz!</div>
+        <div class="score-text">
+            <span>Your score final is <p>15</p> </span>
+        </div>
+
+        <div class="initials">Initials:</div>
+        <input type="text" id="initials" name="initials">
+        <div class="buttons">
+            <button class="submit">Submit</button>
+        </div>
+    </div>
+
+    <!-- High Scores Box -->
 
     <script src="./assets/js/script.js"></script>
     <script src="./assets/js/questions.js"></script>
