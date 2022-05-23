@@ -3,99 +3,53 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript Quiz</title>
+    <title>JS Quiz</title>
     <link rel="stylesheet" href="./assets/css/style.css">
+
 </head>
 
 <body>
-
-
-    <div class="start-box">
-
-        <div class="start" id="quiz-start">
-            <h1>Instructions</h1>
+    <!-- INTRODUCTION -->
+    <div id="intro-box">
+        <div class="intro">
+            <h1>Instructions:</h1>
         </div>
-        <div class="quiz-info">
-            <p>For this timed quiz, every incorrectly answered question results in subtracted time from the quiz
-                timer.
-                The quiz ends once all questions have been answer or once time runs out. Good luck!</p>
+        <div class="intro-text">
+            <p>
+                For this timed quiz, every incorrectly answered question results in 15 seconds subtracted from the quiz
+                timer. The quiz ends once all questions have been answered or once time runs out. Good luck!
+            </p>
         </div>
-
-        <div class="start-btn">
+    
+        <div id="start-btn">
             <button>Start!</button>
         </div>
+    </div> 
 
-    </div>
-
-    <!-- Quiz Box -->
-    <div class="quiz-box">
-        <header>
-            <div class="title">
-                JavaScript Quiz
-            </div>
-            <div class="timer">
-                <div class="time-text">Timer:</div>
-                <div class="timer-sec">15</div>
-            </div>
-        </header>
-        <section>
-            <div class="que-text">
-                <span>Inside which HTML element do we put the JavaScript?</span>
-            </div>
-            <div class="option-list">
-                <div class="option">
-                    <span>javascript</span>
-                </div>
-            </div>
-            <div class="option-list">
-                <div class="option">
-                    <span>js</span>
-                    <div class="icon-cross"><i class="fas fa-times"></i></div>
-                </div>
-            </div>
-            <div class="option-list">
-                <div class="option">
-                    <span>script</span>
-                    <div class="icon-tick"><i class="fas fa-check"></i></div>
-                </div>
-            </div>
-            <div class="option-list">
-                <div class="option">
-                    <span>scripting</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Quiz Box Footer -->
-        <footer>
-            <div class="total-que">
-                <span>
-                    <p>2</p>of<p>5</p>Questions
-                </span>
-            </div>
-            <!-- [use for reference with correct answer button function] <button class="next_btn">Next</button> -->
-        </footer>
-    </div>
-
-    <!-- Result Box -->
-    <div class="result-box">
-        <div class="complete-text">You have finished the quiz!</div>
-        <div class="score-text">
-            <span>Your score final is <p>15</p> </span>
-        </div>
-
-        <div class="initials">Initials:</div>
-        <input type="text" id="initials" name="initials">
-        <div class="buttons">
-            <button class="submit">Submit</button>
+<!-- QUIZ QUESTIONS -->
+    <div id="quiz-box" class="hide">
+        <div id="question">Question</div>
+        <div class="button-grid" id="answer-btn">
+            <button class="btn">Answer 1</button>
+            <button class="btn">Answer 2</button>
+            <button class="btn">Answer 3</button>
+            <button class="btn">Answer 4</button>
         </div>
     </div>
+    <footer>
+        <div id="yes" class="hide">Correct!</div>
+        <div id="no" class="hide">Wrong!</div>
+    </footer>
 
-    <!-- High Scores Box -->
 
-    <script src="./assets/js/script.js"></script>
-    <script src="./assets/js/questions.js"></script>
+<!-- QUIZ RESULTS AND INITIALS INPUT -->
+    <div id="results"></div>
+
+
+<!-- HIGH SCORES AND GO BACK BUTTON -->
+    <div id="scores"></div>
 </body>
-
+<script src="./assets/js/script.js"></script>
 </html>
