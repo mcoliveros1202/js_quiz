@@ -1,39 +1,3 @@
-//     
-
-//     {
-//         question: "How do you write a conditional statement for executing some statements only if 'i' is equal to 5?",
-//         answers: {
-//             a: "if i == 5 then",
-//             b: "if(i== 5)",
-//             c: "if i = 5 then",
-//             d: "if i = 5"
-//         },
-//         correctAnswer: "b"
-//     },
-
-//     {
-//         questions: "How does a 'for' loop start?",
-//         answers: {
-//             a: "for(i = 0; i <= 5)",
-//             b: "for (i = 0; i <= 5; i++)",
-//             c: "for i = 1 to 5",
-//             d: "for (i <= 5; i++)"
-//         },
-//         correctAnswer: "b"
-//     },
-
-//     {
-//         question: "How can you add a comment in a JavaScript?",
-//         answers: {
-//             a: "//This is a comment",
-//             b: "'This is a comment",
-//             c: "< !--This is a comment-- >",
-//             d: "#This is a comment"
-//         },
-//         correctAnswer: "a"
-//     }
-// ];
-
 const startButton = document.getElementById('start-btn');
 const introBox = document.getElementById('intro-box');
 const questionContainer = document.getElementById('quiz-box');
@@ -91,6 +55,12 @@ function selectAnswer(e) {
     Array.from(answerButtonsElement.children).forEach(button => {
         setStatusClass(button, button.dataset.correct)
     })
+    if (shuffledQuestions.length > currentQuestionIndex + 1) {
+        // SHOW NEXT QUESTIONS
+    } else {
+        // RESULTS PAGE
+        // ex. STARTBUTTON.CLASSLIST.REMOVE('HIDE')-- THIS SHOULD BE SIMILAR TO REMOVING HIDE FROM RESULTS PAGE
+    }
 }
 
 function setStatusClass(element, correct) {
@@ -130,10 +100,41 @@ var questions = [
         ]
 
     },
+    {
+        question: "How do you write a conditional statement for executing some statements only if 'i' is equal to 5?",
+        choices: [
+            { text: "if i == 5 then", correct: false },
+            { text: "if(i== 5)", correct: true },
+            { text: "if i = 5 then", correct: false },
+            { text: "if i = 5", correct: false }
+        ],
+
+    },
+
+    {
+        questions: "How does a 'for' loop start?",
+        choices: [
+            { text: "for(i = 0; i <= 5)", correct: false },
+            { text: "for (i = 0; i <= 5; i++)", correct: true },
+            { text: "for i = 1 to 5", correct: false },
+            { text: "for (i <= 5; i++)", correct: false }
+        ]
+    },
+
+    {
+        question: "How can you add a comment in a JavaScript?",
+        choices: [
+            { text: "//This is a comment", correct: true },
+            { text: "'This is a comment", correct: false },
+            { text: "< !--This is a comment-- >", correct: false },
+            { text: "#This is a comment", correct: false }
+        ],
+    }
 ];
 
+
 // TO DO:
-// FINISH TRANSFERRING ALL QUESTIONS INTO CORRECT FORMAT
+
 // FIX DISPLAY OF CORRECT AND WRONG
 // SETUP TIMER
 // LINK SUBTRACTING TIME FOR WRONG QUESTIONS
