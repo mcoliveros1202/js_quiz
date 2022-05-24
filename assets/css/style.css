@@ -167,6 +167,24 @@ body{
     border-radius: var(--border-radius);
 }
 
+#scores {
+    background: antiquewhite;
+    border-radius: 7px;
+    padding: 12px;
+}
+
+#scores-initials {
+    font-size: 18px;
+    border-radius: var(--border-radius);
+}
+
+#back-btn, #clear-btn {
+    background: #253d2c;
+    color: antiquewhite;
+    padding: 7px 23px;
+    border-radius: var(--border-radius);
+}
+
 .hide {
     display: none;
 }
