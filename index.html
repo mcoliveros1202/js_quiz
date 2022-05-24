@@ -11,6 +11,15 @@
 </head>
 
 <body>
+
+    
+    <header class="header">
+    <!-- TIMER -->
+    <div id="timer">
+        <div id="time-text">Timer:</div>
+        <div id="timer-sec">60</div>
+    </div>
+</header>
     <!-- INTRODUCTION -->
     <div id="intro-box">
         <div class="intro">
@@ -22,13 +31,13 @@
                 timer. The quiz ends once all questions have been answered or once time runs out. Good luck!
             </p>
         </div>
-    
+
         <div id="start-btn">
             <button>Start!</button>
         </div>
-    </div> 
+    </div>
 
-<!-- QUIZ QUESTIONS -->
+    <!-- QUIZ QUESTIONS -->
     <div id="quiz-box" class="hide">
         <div id="question">Question</div>
         <div class="button-grid" id="answer-btn">
@@ -38,18 +47,27 @@
             <button class="btn">Answer 4</button>
         </div>
     </div>
-    <footer>
-        <div id="yes" class="hide">Correct!</div>
-        <div id="no" class="hide">Wrong!</div>
-    </footer>
+
+    <!-- QUIZ RESULTS AND INITIALS INPUT -->
+    <div id="results" class="hide">
+        <div class="complete-text">You have finished the quiz!</div>
+        <div id="score-text">
+            <span>Your final score is: <p>15</p></span>
+        </div>
+
+        <div class="initials">
+            <div id="initials">Initials:</div>
+            <input type="text" id="initials-box" name="initials" placeholder="Your Initials">
+            <div class="buttons">
+                <button id="submit">Submit</button>
+            </div>
+        </div>
+    </div>
 
 
-<!-- QUIZ RESULTS AND INITIALS INPUT -->
-    <div id="results"></div>
-
-
-<!-- HIGH SCORES AND GO BACK BUTTON -->
+    <!-- HIGH SCORES AND GO BACK BUTTON -->
     <div id="scores"></div>
 </body>
 <script src="./assets/js/script.js"></script>
+
 </html>

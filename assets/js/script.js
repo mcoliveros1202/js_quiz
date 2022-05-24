@@ -3,26 +3,50 @@ const introBox = document.getElementById('intro-box');
 const questionContainer = document.getElementById('quiz-box');
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-btn')
-const feedbackYes = document.getElementById('yes')
-const feedbackNo = document.getElementById('no')
+const resultsBox = document.getElementById('results')
 
 let shuffledQuestions, currentQuestionIndex
 
 
+var timerEl = document.getElementById('timer-sec');
+
+function countdown() {
+    var timeLeft = 60;
+    timeLeft = setTimeout(function () {
+        timeLeft--;
+        if (timeLeft > 1) {
+            timerEl.textContent = timeLeft;
+            timeLeft--;
+        }
+        else if (timeLeft === 1) {
+            timerEl.textContent = timeLeft;
+            timeLeft--;
+        }
+        else {
+            timerEl.textContent = "";
+            resultsBox.classList.remove('hide');
+            questionContainer.classList.add('hide');
+        }
+        console.log('timer is working');
+    })
+}
+
 startButton.addEventListener('click', startGame)
 answerButtonsElement.addEventListener('click', () => {
     currentQuestionIndex++
-    setNextQuestion()
+    setNextQuestion();
 })
 function startGame() {
-    console.log('started');
     startButton.classList.add('hide');
     introBox.classList.add('hide');
     shuffledQuestions = questions.sort(() => Math.random() - .5);
     currentQuestionIndex = 0;
     questionContainer.classList.remove('hide');
     setNextQuestion();
+    countdown();
 }
+
+
 
 function setNextQuestion() {
     resetState()
@@ -42,12 +66,28 @@ function showQuestion(question) {
         answerButtonsElement.appendChild(button)
     });
 }
+
+
+// var count = 60;
+// var timer = setInterval(function() {
+//   console.log(count);
+//   count--;
+//   if(count === 0) {
+//     stopInterval()
+//   }
+// }, 1000);
+
+// var stopInterval = function() {
+//   console.log('time is up!');
+//   clearInterval(timer);
+// }
+
 function resetState() {
-    //     nextButton.classList.add('hide')
     while (answerButtonsElement.firstChild) {
         answerButtonsElement.removeChild(answerButtonsElement.firstChild)
     }
 }
+
 function selectAnswer(e) {
     const selectedButton = e.target
     const correct = selectedButton.dataset.correct
@@ -58,19 +98,17 @@ function selectAnswer(e) {
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
         // SHOW NEXT QUESTIONS
     } else {
-        // RESULTS PAGE
-        // ex. STARTBUTTON.CLASSLIST.REMOVE('HIDE')-- THIS SHOULD BE SIMILAR TO REMOVING HIDE FROM RESULTS PAGE
+        resultsBox.classList.remove('hide')
+        questionContainer.classList.add('hide')
     }
 }
 
 function setStatusClass(element, correct) {
     clearStatusClass(element)
-    if (correct === true) {
-
-        feedbackYes.classList.remove('hide')
+    if (correct) {
+        element.classList.add('correct')
     } else {
-
-        feedbackNo.classList.remove('hide')
+        element.classList.add('wrong')
     }
 }
 
