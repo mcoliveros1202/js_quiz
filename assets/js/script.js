@@ -10,32 +10,58 @@ let shuffledQuestions, currentQuestionIndex
 
 var timerEl = document.getElementById('timer-sec');
 
-function countdown() {
-    var timeLeft = 60;
-    timeLeft = setTimeout(function () {
-        timeLeft--;
-        if (timeLeft > 1) {
-            timerEl.textContent = timeLeft;
-            timeLeft--;
+// function countdown() {
+//     var timeLeft = 60;
+//     timeLeft = TimeoutID(function () {
+//         timeLeft--;
+//         if (timeLeft > 1) {
+//             timerEl.textContent = timeLeft;
+//             timeLeft--;
+//         }
+//         else if (timeLeft === 1) {
+//             timerEl.textContent = timeLeft;
+//             timeLeft--;
+//         }
+//         else {
+//             timerEl.textContent = "";
+//             resultsBox.classList.remove('hide');
+//             questionContainer.classList.add('hide');
+
+//         }
+//         console.log('timer is working');
+//     })
+// }
+
+function startTimer(duration, display) {
+    var timer = duration, seconds;
+    setInterval(function () {
+
+        seconds = parseInt(timer % 60, 10);
+
+        
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = seconds;
+
+        if (--timer < 0) {
+            timer = duration;
         }
-        else if (timeLeft === 1) {
-            timerEl.textContent = timeLeft;
-            timeLeft--;
-        }
-        else {
-            timerEl.textContent = "";
-            resultsBox.classList.remove('hide');
-            questionContainer.classList.add('hide');
-        }
-        console.log('timer is working');
-    })
+    }, 1000);
 }
+
+
 
 startButton.addEventListener('click', startGame)
 answerButtonsElement.addEventListener('click', () => {
     currentQuestionIndex++
     setNextQuestion();
+    
 })
+function timerTrigger() {
+    var time = 60,
+        display = document.querySelector('#timer');
+    startTimer(time, display);
+};
 function startGame() {
     startButton.classList.add('hide');
     introBox.classList.add('hide');
@@ -43,10 +69,10 @@ function startGame() {
     currentQuestionIndex = 0;
     questionContainer.classList.remove('hide');
     setNextQuestion();
-    countdown();
+
+    timerTrigger();
+    startTimer();
 }
-
-
 
 function setNextQuestion() {
     resetState()
@@ -66,21 +92,6 @@ function showQuestion(question) {
         answerButtonsElement.appendChild(button)
     });
 }
-
-
-// var count = 60;
-// var timer = setInterval(function() {
-//   console.log(count);
-//   count--;
-//   if(count === 0) {
-//     stopInterval()
-//   }
-// }, 1000);
-
-// var stopInterval = function() {
-//   console.log('time is up!');
-//   clearInterval(timer);
-// }
 
 function resetState() {
     while (answerButtonsElement.firstChild) {
