@@ -1,86 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS Quiz</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
-
+    <link rel="stylesheet" href="assets/css/app.css" />
 </head>
-
 <body>
-
-    
-    <header class="header">
-    <!-- TIMER -->
-    <div id="timer">
-        <div id="time-text">Timer:</div>
-        <div id="timer-sec">60</div>
-    </div>
-</header>
-    <!-- INTRODUCTION -->
-    <div id="intro-box">
-        <div class="intro">
-            <h1>Instructions:</h1>
+    <div class="container">
+        <div id="home-page" class="flex-center flex-column">
+            <h1>JS Quiz</h1>
+            <a class="btn" href="./questions.html">Start!</a>
+            <a class="btn" href="high-scores.html">High Scores</a>
         </div>
-        <div class="intro-text">
-            <p>
-                For this timed quiz, every incorrectly answered question results in 60 seconds subtracted from the quiz
-                timer. The quiz ends once all questions have been answered or once time runs out. Good luck!
-            </p>
-        </div>
-
-        <div id="start-btn">
-            <button>Start!</button>
-        </div>
-    </div> 
-
-    <!-- QUIZ QUESTIONS -->
-    <div id="quiz" class="hide">
-        <h2 id="question">Question</h2>
-        <div class="choice-container">
-            <p class="choice-prefix">A</p>
-            <p class="choice-text" data-number="1">Choice 1</p>
-        <div class="choice-container">
-            <p class="choice-prefix">B</p>
-            <p class="choice-text" data-number="2">Choice 2</p>
-        <div class="choice-container">
-            <p class="choice-prefix">C</p>
-            <p class="choice-text" data-number="3">Choice 3</p>
-        <div class="choice-container">
-            <p class="choice-prefix">D</p>
-            <p class="choice-text" data-number="1">Choice 4</p>
-        </div>
-    </div>
-
-    <!-- QUIZ RESULTS AND INITIALS INPUT -->
-    <div id="results" class="hide">
-        <div class="complete-text">You have finished the quiz!</div>
-        <div id="score-text">
-            <span>Your final score is: <p id="timeValue">15</p></span>
-        </div>
-
-        <div class="initials">
-            <div id="initials">Initials:</div>
-            <input type="text" id="initials-box" name="initials" placeholder="Your Initials">
-            <div class="buttons">
-                <button id="submit">Submit</button>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- HIGH SCORES AND GO BACK BUTTON -->
-    <div id="scores" class="hide">
-        <h1 id="score-initials">High Scores</h1>
-        <div id="scores-list"></div>
-        <button id="back-btn">Back</button>
-        <button id="clear-btn">Clear Scores</button>
     </div>
 </body>
-<script src="./assets/js/script.js"></script>
-
-
 </html>
