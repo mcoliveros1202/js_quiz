@@ -5,11 +5,9 @@ const mostRecentScore = localStorage.getItem("mostRecentScore");
 
 const MAX_HIGH_SCORES = 5;
 const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-console.log(highScores);
 finalScore.innerText = mostRecentScore;
 
 initials.addEventListener("keyup", () => {
-    console.log(initials.value);
     saveScoreBtn.disabled = !initials.value;
 })
 
