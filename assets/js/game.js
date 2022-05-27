@@ -1,5 +1,7 @@
 const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
+const questionCounterText = document.getElementById("question-counter");
+const scoreText = document.getElementById("score");
 
 let currentQuestion = {};
 let acceptingAnswers = true;
@@ -57,6 +59,7 @@ let questions = [
 const INCORRECT_BONUS = -15;
 const MAX_QUESTIONS = 5
 
+// START QUIZ
 startGame = () => {
     questionCounter = 0;
     score = 60;
@@ -64,12 +67,14 @@ startGame = () => {
     getNewQuestion();
 };
 
+// NEXT QUESTION 
 getNewQuestion = () => {
     if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
         //got to the end page
         return window.location.assign();
     }
     questionCounter++;
+    questionCounterText.innerText = questionCounter + "/" + MAX_QUESTIONS;
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionIndex];
     question.innerText = currentQuestion.question;
@@ -84,6 +89,7 @@ getNewQuestion = () => {
     acceptingAnswers = true;
 };
 
+// DISPLAY FOR CORRECT OR INCORRECT ANSWER SELECTION
 choices.forEach(choice => {
     choice.addEventListener("click", e => {
         if (!acceptingAnswers) return;
@@ -95,6 +101,10 @@ choices.forEach(choice => {
         const classToApply =
             selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
 
+            if(classToApply === "incorrect") {
+                decrementScore(INCORRECT_BONUS);
+            }
+
 
         selectedChoice.parentElement.classList.add(classToApply);
 
@@ -105,4 +115,10 @@ choices.forEach(choice => {
     });
 });
 
+decrementScore = num => {
+    score = --num;
+    scoreText.innerText = score;
+};
+
+// START THE QUIZ!
 startGame();
