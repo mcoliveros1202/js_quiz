@@ -86,7 +86,7 @@ body{
     box-shadow: 0 0 10px 2px;
 }
 
-.button-grid {
+.choice-container {
     display: grid;
     grid-template-columns: repeat(2, auto);
     gap: 25px;
