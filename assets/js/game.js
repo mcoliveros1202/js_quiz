@@ -1,10 +1,11 @@
 const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
 const questionCounterText = document.getElementById("question-counter");
-const quizTimer = document.getElementById("timer");
+const scoreText = document.getElementById("score");
 
 let currentQuestion = {};
 let acceptingAnswers = false;
+let score = 0;
 let questionCounter = 0;
 let availableQuestions = [];
 
@@ -58,37 +59,6 @@ let questions = [
 const INCORRECT_BONUS = 10;
 const MAX_QUESTIONS = 5
 
-function startTimer(duration, display) {
-    var timer = duration, seconds;
-    setInterval(function () {
-
-        seconds = parseInt(timer % 60, 10);
-
-
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        display.textContent = seconds;
-
-        if (--timer < 0) {
-            timer = duration;
-        }
-    }, 1000);
-
-    function myStopFunction() {
-        clearTimer(timer);
-    }
-    document.querySelectorAll('correct: false').addEventListener('click', function () {
-        sec -= 15;
-        document.getElementById('timer').innerHTML = '00:' + sec;
-    });
-}
-
-function timerTrigger() {
-    var time = 60,
-        display = document.querySelector('#timer');
-    startTimer(time, display);
-};
-
 // START QUIZ
 startGame = () => {
     questionCounter = 0;
@@ -132,9 +102,9 @@ choices.forEach(choice => {
         const classToApply =
             selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
 
-        if (classToApply === "correct") {
-            decrementScore(INCORRECT_BONUS);
-        }
+            if(classToApply === "correct") {
+                decrementScore(INCORRECT_BONUS);
+            }
 
 
         selectedChoice.parentElement.classList.add(classToApply);
