@@ -4,8 +4,8 @@ const questionCounterText = document.getElementById("question-counter");
 const scoreText = document.getElementById("score");
 
 let currentQuestion = {};
-let acceptingAnswers = true;
-let score = 60;
+let acceptingAnswers = false;
+let score = 0;
 let questionCounter = 0;
 let availableQuestions = [];
 
@@ -56,13 +56,13 @@ let questions = [
 ];
 
 // CONSTANTS
-const INCORRECT_BONUS = -15;
+const INCORRECT_BONUS = 10;
 const MAX_QUESTIONS = 5
 
 // START QUIZ
 startGame = () => {
     questionCounter = 0;
-    score = 60;
+    score = 0;
     availableQuestions = [...questions];
     getNewQuestion();
 };
@@ -70,8 +70,9 @@ startGame = () => {
 // NEXT QUESTION 
 getNewQuestion = () => {
     if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
+        localStorage.setItem("mostRecentScore", score);
         //got to the end page
-        return window.location.assign();
+        return window.location.assign("/Users/maggieoliveros/Desktop/module_work/js_quiz/end.html");
     }
     questionCounter++;
     questionCounterText.innerText = questionCounter + "/" + MAX_QUESTIONS;
@@ -101,7 +102,7 @@ choices.forEach(choice => {
         const classToApply =
             selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
 
-            if(classToApply === "incorrect") {
+            if(classToApply === "correct") {
                 decrementScore(INCORRECT_BONUS);
             }
 
@@ -116,7 +117,7 @@ choices.forEach(choice => {
 });
 
 decrementScore = num => {
-    score = --num;
+    score += num;
     scoreText.innerText = score;
 };
 
